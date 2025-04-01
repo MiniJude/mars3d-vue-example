@@ -3317,6 +3317,19 @@
         "details": "绘制及编辑文字、点、线、面、立体等各类数据",
         "children": [
           {
+            "name": "图上标绘（专用）",
+            "thumbnail": "layerg-draw-draw.jpg",
+            "main": "layer-graphic/draw/draw2",
+            "api": "GraphicLayer.html#startDraw",
+            "hasPannel": true,
+            "libs": [
+              "mars3d",
+              "mars3d-space",
+              "kmlGeojson",
+              "terraformer"
+            ]
+          },
+          {
             "name": "图上标绘",
             "thumbnail": "layerg-draw-draw.jpg",
             "main": "layer-graphic/draw/draw",
