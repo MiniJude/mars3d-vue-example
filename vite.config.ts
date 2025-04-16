@@ -20,7 +20,13 @@ export default ({ mode }: ConfigEnv) => {
     base: ENV.VITE_BASE_URL,
     server: {
       host: "localhost",
-      port: 3001
+      port: 3001,
+      proxy: {
+        "/files": {
+          target: "http://10.6.122.32",
+          changeOrigin: true
+        }
+      }
     },
     define: {
       "process.env": {

@@ -26,31 +26,13 @@ export const mapOptions = {
       proxy: "",
       show: true
     }
-  ],
-  layers: [
-    {
-      name: "合肥市",
-      type: "geojson",
-      url: "https://data.mars3d.cn/file/geojson/areas/340100_full.json",
-      symbol: {
-        styleOptions: {
-          fill: true,
-          randomColor: true, // 随机色
-          opacity: 0.3,
-          outline: true,
-          outlineStyle: {
-            color: "#FED976",
-            width: 3,
-            opacity: 1
-          },
-          highlight: {
-            opacity: 0.9
-          }
-        }
-      },
-      popup: "{name}",
-      show: true
-    }
+    // {
+    //   name: "SS",
+    //   type: "xyz",
+    //   url: "/files/maptiles/shitoumei/{z}/{x}/{y}.png",
+    //   chinaCRS: mars3d.ChinaCRS.GCJ02,
+    //   show: true
+    // }
   ]
 }
 
@@ -61,6 +43,21 @@ let keyDownCode // 一直按着的键对应的code
 // 初始化地图业务，生命周期钩子函数（必须）,框架在地图初始化完成后自动调用该函数
 export function onMounted(mapInstance) {
   map = mapInstance // 记录map
+
+
+  const planTilesLayer = new mars3d.layer.XyzLayer({
+    pid: 10,
+    id: 2025,
+    name: "玉龙喀什工程计划图",
+    type: "xyz",
+    url: "/files/maptiles/shitoumei/{z}/{x}/{y}.png",
+    crs: "EPSG:3857",
+    // chinaCRS: mars3d.ChinaCRS.GCJ02,
+    opacity: 0.5,
+    show: true,
+    zIndex: 999
+  })
+  map.addLayer(planTilesLayer)
 
   // 设置编辑点样式
   // mars3d.DrawUtil.setEditPointStyle(mars3d.EditPointType.Control, {
